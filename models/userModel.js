@@ -38,6 +38,10 @@ let userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    avatar: {
+      type: String,
+      default: "https://i.ibb.co/BZHjTcZ/avatardefault.png",
+    },
     isBlocked: {
       type: Boolean,
       default: false,
