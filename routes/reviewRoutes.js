@@ -7,5 +7,5 @@ router.post("/", reviewController.createReview);
 router.get("/", reviewController.getAllReviews);
 router.get("/:id", reviewController.getAReview);
 router.put("/update/:id", isAdmin, reviewController.updateReview);
-router.delete("/:id", reviewController.deleteReview);
+router.delete("/:id", isAdmin, reviewController.deleteReview);
 module.exports = router;
