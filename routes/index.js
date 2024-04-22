@@ -9,6 +9,9 @@ const documentationRoutes = require("./documentationRoutes");
 const blogRoutes = require("./blogRoutes");
 const docCategoryRoutes = require("./docCatRoutes");
 const blogCategoryRoutes = require("./blogCatRoutes");
+const courseCategoryRoutes = require("./courseCatRoutes");
+const courseRoutes = require("./courseRoutes");
+const lessonRoutes = require("./lessonRoutes");
 const { notFound, handleError } = require("../middlewares/errorHandler");
 const initWebRoute = (app) => {
   app.use("/api/user", userRoutes);
@@ -20,8 +23,12 @@ const initWebRoute = (app) => {
   app.use("/api/video", videoRoutes);
   app.use("/api/documentation", documentationRoutes);
   app.use("/api/blog", blogRoutes);
+  app.use("/api/course", courseRoutes);
+  app.use("/api/lesson", lessonRoutes);
   app.use("/api/documentation/category", docCategoryRoutes);
   app.use("/api/blog/category", blogCategoryRoutes);
+  app.use("/api/course/category", courseCategoryRoutes);
+
   // Error Handler
   app.use(notFound);
   app.use(handleError);

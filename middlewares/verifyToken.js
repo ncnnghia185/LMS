@@ -53,8 +53,20 @@ const isInstructor = async (req, res, next) => {
   next();
 };
 
+const isBoth = async (req, res, next) => {
+  const { roles } = req.user;
+  if (roles === "admin" || roles === "instructor") {
+    next();
+  } else {
+    return res.status(400).json({
+      success: false,
+      mes: "REQUIRE ADMIN OR INSTRUCTOR ROLE",
+    });
+  }
+};
 module.exports = {
   verifyAccesToken,
   isAdmin,
   isInstructor,
+  isBoth,
 };
