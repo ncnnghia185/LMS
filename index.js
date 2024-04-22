@@ -11,6 +11,7 @@ dbConnect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 initWebRoute(app);
 
 app.listen(PORT, () => {
