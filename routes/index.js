@@ -15,7 +15,9 @@ const lessonRoutes = require("./lessonRoutes");
 const workRoutes = require("./workWithUsRoutes");
 const projectCategoryRoutes = require("./projectCatRoutes");
 const projectRoutes = require("./projectRoutes");
+const sessiontRoutes = require("./sessionRoutes");
 const rateLimit = require("../utils/limitRequest");
+const qnaRoutes = require("./Q&A Routes/qnaRoutes");
 const { notFound, handleError } = require("../middlewares/errorHandler");
 const initWebRoute = (app) => {
   app.use("/api", rateLimit(15 * 60 * 1000, 50, "Only 50 request allowed"));
@@ -35,7 +37,10 @@ const initWebRoute = (app) => {
   app.use("/api/course/category", courseCategoryRoutes);
   app.use("/api/project/category", projectCategoryRoutes);
   app.use("/api/project", projectRoutes);
+  app.use("/api/book-session", sessiontRoutes);
   app.use("/api/work", workRoutes);
+  app.use("/api/question", qnaRoutes);
+
   // Error Handler
   app.use(notFound);
   app.use(handleError);
